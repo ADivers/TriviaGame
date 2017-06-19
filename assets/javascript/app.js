@@ -31,11 +31,13 @@ var unansweredTally = 0;
 var successimage = '<iframe src="https://giphy.com/embed/nXxOjZrbnbRxS" width="356" height="480" align="middle" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/win-nXxOjZrbnbRxS">via GIPHY</a></p>';
 var failimage = '<iframe src="https://giphy.com/embed/3o6Zt1TrXW8uW2lE2I" width="480" height="476" align="middle" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/3o6Zt1TrXW8uW2lE2I">via GIPHY</a></p>';
 var doneimage = '<iframe src="https://giphy.com/embed/lD76yTC5zxZPG" width="480" height="352" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/the-end-thats-all-folks-lD76yTC5zxZPG">via GIPHY</a></p>'
+var outoftimeimage = '<iframe src="https://giphy.com/embed/3ornjXizVZDbngmjRK" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/captainobvious-3ornjXizVZDbngmjRK">via GIPHY</a></p>'
+
 ////////******FUNCTIONS********/////////////
 
 function generateLossDueToTimeOut() {
 	unansweredTally++;
-	gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+	gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + outoftimeimage;
 	$(".mainArea").html(gameHTML);
 	setTimeout(wait, 4000); 
 }
@@ -49,7 +51,7 @@ function generateWin() {
 
 function generateLoss() {
 	incorrectTally++;
-	gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + failimage;
+	gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is:"+ correctAnswers[questionCounter] + "</p>" + failimage;
 	$(".mainArea").html(gameHTML);
 	setTimeout(wait, 4000); 
 }
